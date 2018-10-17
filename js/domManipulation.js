@@ -62,8 +62,8 @@ function addBox() {
 var selectedBoxes = document.getElementsByClassName("box-selected");
 function removeSelectedBoxes() {
   var parent = document.getElementById("boxes");
-  for (var i=0; i<selectedBoxes.length; i++) {
-    parent.removeChild(selectedBoxes[i]);
+  while (0<selectedBoxes.length) {
+    parent.removeChild(selectedBoxes[0]);
 }
   console.log('Removing selected boxes');
   // TODO: look at the selectedBoxes array and remove each of those
