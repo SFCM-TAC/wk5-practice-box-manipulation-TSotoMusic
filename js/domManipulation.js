@@ -1,13 +1,34 @@
 
-function changeBoxColors(color) {
-  var boxClass = document.getElementsByClassName("box ")
+var newColor = ""
 
+function changeBoxColors(color) {
+  var boxClass = document.getElementsByClassName("box")
   if (boxClass.length > 1) {
     for (var i=0; i<boxClass.length; i++) {
-      boxClass[i].className += color;
+      switch (color) {
+        case "red":
+          boxClass[i].classList.remove("yellow", "blue", "grey");
+          boxClass[i].classList.add("red");
+          newColor = "red";
+          break;
+
+        case "blue":
+          boxClass[i].classList.remove("yellow", "red", "grey");
+          boxClass[i].classList.add("blue");
+          newColor = "blue";
+          break;
+
+        case "yellow":
+          boxClass[i].classList.remove("blue", "red", "grey");
+          boxClass[i].classList.add("yellow");
+          newColor = "yellow";
+          break;
+
+        default:
+          boxClass[i].classList.remove("blue", "yellow", "red")
     }
   }
-
+}
   console.log('Selected color: ' + color);
   // TODO: Look at styles.css and choose a class
   // to apply to all of the box elements in order
@@ -23,6 +44,11 @@ function addBox() {
 
   var newBoxElement = document.createElement('div');
     newBoxElement.setAttribute("class", "box");
+    if (Boolean(newColor) == true) {
+      newBoxElement.classList.add(newColor)
+    } else {
+      newBoxElement.classList.add("grey")
+    }
     var position = document.getElementById("boxes");
     position.appendChild(newBoxElement);
 
