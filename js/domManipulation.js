@@ -1,5 +1,13 @@
 
 function changeBoxColors(color) {
+  var boxClass = document.getElementsByClassName("box ")
+
+  if (boxClass.length > 1) {
+    for (var i=0; i<boxClass.length; i++) {
+      boxClass[i].className += color;
+    }
+  }
+
   console.log('Selected color: ' + color);
   // TODO: Look at styles.css and choose a class
   // to apply to all of the box elements in order
@@ -13,7 +21,12 @@ function addBox() {
   // TODO: Add a new div with class="box" to
   // the boxes section of the dom tree
 
-  var newBoxElement = null; // replace with your code
+  var newBoxElement = document.createElement('div');
+    newBoxElement.setAttribute("class", "box");
+    var position = document.getElementById("boxes");
+    position.appendChild(newBoxElement);
+
+   // replace with your code
   // This line is needed to make sure that new boxes
   // handle clicks. Make sure thatnewBoxElement refers
   // to the DOM node containing your new Div.
