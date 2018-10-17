@@ -9,13 +9,14 @@
 .yellow {
   background-color: yellow;
 }
-
+.grey {
+  background-color: grey;
+}
 /* box classes */
 .box {
   height: 150px;
   width: 200px;
   margin: 10px;
-  background-color: gray;
 }
 
 .box-selected {
